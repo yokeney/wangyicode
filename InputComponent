@@ -1,35 +1,19 @@
-import React, { Component } from "react";
-import "./App.css";
-class InputNumber extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-		value: ""
-    };
+import React, { Component } from 'react'
+export default class InputNumber extends Component{
+  handleContentChange = (e)=>{
+    this.setState({
+        content: e.target.value
+    })
   }
-  handInputWatch(ev) {
-	  this.setState({
-		value:ev.target.value
-	  })
-  }
-  render() {
-    // let { value, onChange, defaultValue } = this.props;
-    return (
-      <input
-        type="text"
-        value={this.state.value}
-        onChange={this.handInputWatch(this)}
-      />
-    );
+  render(){
+    return(
+      <div>
+          <input
+              type="text"
+              value={this.state.content}
+              onChange={this.handleContentChange}
+           />
+      </div>
+    )
   }
 }
-function App() {
-  const [value, setValue] = useState("aaa");
-  return (
-    <div>
-      <InputNumber value={value} onChange={e => {}} />
-      <InputNumber defaultValue={value} onChange={e => {}} />
-    </div>
-  );
-}
-export default App;
