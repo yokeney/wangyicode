@@ -1,0 +1,35 @@
+import React, { Component } from "react";
+import "./App.css";
+class InputNumber extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+		value: ""
+    };
+  }
+  handInputWatch(ev) {
+	  this.setState({
+		value:ev.target.value
+	  })
+  }
+  render() {
+    // let { value, onChange, defaultValue } = this.props;
+    return (
+      <input
+        type="text"
+        value={this.state.value}
+        onChange={this.handInputWatch(this)}
+      />
+    );
+  }
+}
+function App() {
+  const [value, setValue] = useState("aaa");
+  return (
+    <div>
+      <InputNumber value={value} onChange={e => {}} />
+      <InputNumber defaultValue={value} onChange={e => {}} />
+    </div>
+  );
+}
+export default App;
